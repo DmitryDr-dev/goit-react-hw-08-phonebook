@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const emailInputId = uuidv4();
+  const passwordInputId = uuidv4();
 
   const onInputChange = e => {
     const { value, name } = e.target;
@@ -32,23 +36,23 @@ export function LoginForm() {
 
   return (
     <form onSubmit={onFormSubmit}>
-      <label htmlFor="email">
+      <label htmlFor={emailInputId}>
         Email
         <input
           type="text"
           name="email"
-          id="email"
+          id={emailInputId}
           value={email}
           onChange={onInputChange}
         />
       </label>
 
-      <label htmlFor="password">
+      <label htmlFor={passwordInputId}>
         Password
         <input
           type="password"
           name="password"
-          id="email"
+          id={passwordInputId}
           value={password}
           onChange={onInputChange}
         />
