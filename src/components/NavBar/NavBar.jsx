@@ -1,9 +1,9 @@
-import { AuthNav } from 'components';
+import { AuthNav, UserMenu } from 'components';
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from 'redux/auth/auth-selectors';
 
 export function NavBar() {
-  return (
-    <header>
-      <AuthNav />
-    </header>
-  );
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
+  return <header>{isLoggedIn ? <UserMenu /> : <AuthNav />}</header>;
 }

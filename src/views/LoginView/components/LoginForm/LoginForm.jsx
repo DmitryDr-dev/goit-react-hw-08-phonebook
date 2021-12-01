@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import authOperations from 'redux/auth/auth-operations';
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const onUserLogin = userData => dispatch(authOperations.userLogin(userData));
 
   const emailInputId = uuidv4();
   const passwordInputId = uuidv4();
@@ -25,7 +29,10 @@ export function LoginForm() {
 
   const onFormSubmit = e => {
     e.preventDefault();
-
+    onUserLogin({
+      email,
+      password,
+    });
     clearForm();
   };
 
@@ -57,6 +64,8 @@ export function LoginForm() {
           onChange={onInputChange}
         />
       </label>
+
+      <button type="submit">Submit</button>
     </form>
   );
 }

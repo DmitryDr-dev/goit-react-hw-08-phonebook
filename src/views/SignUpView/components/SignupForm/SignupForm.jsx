@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import authOperations from 'redux/auth/auth-operations';
 import { v4 as uuidv4 } from 'uuid';
 
 export function SignUpForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const onUserSignUp = userData =>
+    dispatch(authOperations.userSignUp(userData));
 
   const nameInputId = uuidv4();
   const emailInputId = uuidv4();
@@ -33,6 +38,12 @@ export function SignUpForm() {
 
   const onFormSubmit = e => {
     e.preventDefault();
+
+    onUserSignUp({
+      name,
+      email,
+      password,
+    });
 
     clearForm();
   };
