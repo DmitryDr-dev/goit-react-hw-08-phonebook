@@ -1,10 +1,13 @@
 import { SignUpForm } from './components/SignupForm/SignupForm';
-import { Container } from 'components';
+import { Container, Section, SectionTitle } from 'components';
 
 export function SignUpView() {
   return (
-    <Container>
-      <SignUpForm />
-    </Container>
+    <Section>
+      <Container>
+        <SectionTitle>Not a Member yet?</SectionTitle>
+        <SignUpForm />
+      </Container>
+    </Section>
   );
 }

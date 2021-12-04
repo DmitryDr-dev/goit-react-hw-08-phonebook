@@ -1,3 +1,5 @@
+import { Hero } from 'views/HomeView/components/Hero';
+
 export function HomeView() {
-  return <h1>Please Sign Up or Log In first</h1>;
+  return <Hero title="Welcome to the Best PhoneBook ever!" />;
 }

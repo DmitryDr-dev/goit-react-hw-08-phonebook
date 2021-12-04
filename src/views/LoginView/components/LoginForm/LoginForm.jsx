@@ -2,7 +2,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import authOperations from 'redux/auth/auth-operations';
-import { FormField, FormInput, FormInputLabel, Button, Form } from 'components';
+import {
+  FormField,
+  FormInput,
+  FormInputLabel,
+  Button,
+  Form,
+  SectionTitle,
+} from 'components';
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
@@ -43,34 +50,36 @@ export function LoginForm() {
   };
 
   return (
-    <Form onSubmit={onFormSubmit}>
-      <FormField>
-        <FormInputLabel htmlFor={emailInputId}>
-          Email
-          <FormInput
-            type="text"
-            name="email"
-            id={emailInputId}
-            value={email}
-            onChange={onInputChange}
-          />
-        </FormInputLabel>
-      </FormField>
+    <>
+      <Form onSubmit={onFormSubmit}>
+        <FormField>
+          <FormInputLabel htmlFor={emailInputId}>
+            Email
+            <FormInput
+              type="text"
+              name="email"
+              id={emailInputId}
+              value={email}
+              onChange={onInputChange}
+            />
+          </FormInputLabel>
+        </FormField>
 
-      <FormField>
-        <FormInputLabel htmlFor={passwordInputId}>
-          Password
-          <FormInput
-            type="password"
-            name="password"
-            id={passwordInputId}
-            value={password}
-            onChange={onInputChange}
-          />
-        </FormInputLabel>
-      </FormField>
+        <FormField>
+          <FormInputLabel htmlFor={passwordInputId}>
+            Password
+            <FormInput
+              type="password"
+              name="password"
+              id={passwordInputId}
+              value={password}
+              onChange={onInputChange}
+            />
+          </FormInputLabel>
+        </FormField>
 
-      <Button type="submit">Submit</Button>
-    </Form>
+        <Button type="submit">Submit</Button>
+      </Form>
+    </>
   );
 }

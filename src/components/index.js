@@ -8,4 +8,5 @@ export { Button, DeleteButton, LogoutButton } from './Button/Button';
 export { Form } from './Form/Form';
 export { Container } from './Container/Container';
 export { Navigation } from './Navigation/Navigation';
+export { Section } from './Section/Section';
 export { SectionTitle } from './SectionTitle/SectionTitle';

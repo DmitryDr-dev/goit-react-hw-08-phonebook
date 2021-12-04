@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import authOperations from 'redux/auth/auth-operations';
 import { getName } from 'redux/auth/auth-selectors';
 import { LogoutButton } from 'components';
@@ -9,7 +10,7 @@ export function UserMenu() {
 
   return (
     <div className="">
-      <span>Welcome, {userName}</span>
+      <Greeting>Welcome, {userName}</Greeting>
       <LogoutButton
         type="button"
         onClick={() => dispatch(authOperations.userLogOut())}
@@ -19,3 +20,7 @@ export function UserMenu() {
     </div>
   );
 }
+
+const Greeting = styled.span`
+  margin-right: 20px;
+`;
