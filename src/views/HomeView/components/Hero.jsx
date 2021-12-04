@@ -14,14 +14,13 @@ export function Hero({ title }) {
 
 const HeroSection = styled.section`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
   /* max-width: 100%; */
-  height: 100vh;
-  background-color: var(--dark-bg-color);
+  height: 100%;
+  /* background-color: var(--dark-bg-color); */
 `;
 
 const HeroTitle = styled.h1`
@@ -30,5 +29,5 @@ const HeroTitle = styled.h1`
   line-height: 1.62;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--dark-bg-text-color);
+  color: var(--accent-color);
 `;

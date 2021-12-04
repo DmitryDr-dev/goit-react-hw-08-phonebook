@@ -11,7 +11,7 @@ const Header = styled.header`
   justify-content: space-around;
   align-items: center;
   border-bottom: 3px solid var(--accent-color);
-  position: fixed;
+  /* position: fixed; */
 `;
 
 export function NavBar() {
