@@ -1,5 +1,10 @@
-import { LoginForm } from './components/LoginForm/LoginForm';
+import { LoginForm } from 'views/LoginView/components/LoginForm/LoginForm';
+import { Container } from 'components';
 
 export function LoginView() {
-  return <LoginForm />;
+  return (
+    <Container>
+      <LoginForm />
+    </Container>
+  );
 }

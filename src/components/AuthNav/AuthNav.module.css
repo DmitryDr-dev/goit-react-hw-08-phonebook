@@ -1,0 +1,12 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: var(--main-text-color);
+}
+
+.activeLink {
+  composes: link;
+  color: var(--accent-color);
+}

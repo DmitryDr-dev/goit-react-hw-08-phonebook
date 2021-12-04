@@ -3,13 +3,18 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { NavBar } from 'components';
 import authOperations from 'redux/auth/auth-operations';
-import { HomeView, SignUpView, LoginView } from 'views';
+import contactsOperations from 'redux/contacts/contacts-operations';
+import { HomeView, SignUpView, LoginView, ContactsView } from 'views';
+import { PrivateRoute, PublicRoute } from 'routes';
+import './styles/index.css';
+import './styles/variables.css';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
+    dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
 
   return (
@@ -17,9 +22,31 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" exact element={<HomeView />} />
-        <Route path="/signup" element={<SignUpView />} />
-        <Route path="/login" element={<LoginView />} />
+        <Route path="/" element={<HomeView />} />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute>
+              <ContactsView />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="signup"
+          element={
+            <PublicRoute>
+              <SignUpView />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <LoginView />
+            </PublicRoute>
+          }
+        />
       </Routes>
     </div>
   );

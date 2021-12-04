@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 import { v4 as uuidv4 } from 'uuid';
+import { FormField, FormInput, FormInputLabel, Button, Form } from 'components';
 
 export function SignUpForm() {
   const [name, setName] = useState('');
@@ -38,12 +39,15 @@ export function SignUpForm() {
 
   const onFormSubmit = e => {
     e.preventDefault();
+    console.log(e);
 
-    onUserSignUp({
+    const contact = {
       name,
       email,
       password,
-    });
+    };
+
+    onUserSignUp(contact);
 
     clearForm();
   };
@@ -55,41 +59,47 @@ export function SignUpForm() {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <label htmlFor={nameInputId}>
-        Name
-        <input
-          type="text"
-          name="name"
-          value={name}
-          id={nameInputId}
-          onChange={onInputChange}
-        />
-      </label>
+    <Form onSubmit={onFormSubmit}>
+      <FormField>
+        <FormInputLabel htmlFor={nameInputId}>
+          Name
+          <FormInput
+            type="text"
+            name="name"
+            value={name}
+            id={nameInputId}
+            onChange={onInputChange}
+          />
+        </FormInputLabel>
+      </FormField>
 
-      <label htmlFor={emailInputId}>
-        Email
-        <input
-          type="email"
-          name="email"
-          value={email}
-          id={emailInputId}
-          onChange={onInputChange}
-        />
-      </label>
+      <FormField>
+        <FormInputLabel htmlFor={emailInputId}>
+          Email
+          <FormInput
+            type="email"
+            name="email"
+            value={email}
+            id={emailInputId}
+            onChange={onInputChange}
+          />
+        </FormInputLabel>
+      </FormField>
 
-      <label htmlFor={passwordInputId}>
-        Password
-        <input
-          type="password"
-          name="password"
-          value={password}
-          id={passwordInputId}
-          onChange={onInputChange}
-        />
-      </label>
+      <FormField>
+        <FormInputLabel htmlFor={passwordInputId}>
+          Password
+          <FormInput
+            type="password"
+            name="password"
+            value={password}
+            id={passwordInputId}
+            onChange={onInputChange}
+          />
+        </FormInputLabel>
+      </FormField>
 
-      <button type="submit">Sign Up</button>
-    </form>
+      <Button type="submit">Sign Up</Button>
+    </Form>
   );
 }

@@ -1,5 +1,10 @@
 import { SignUpForm } from './components/SignupForm/SignupForm';
+import { Container } from 'components';
 
 export function SignUpView() {
-  return <SignUpForm />;
+  return (
+    <Container>
+      <SignUpForm />
+    </Container>
+  );
 }
