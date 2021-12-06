@@ -10,3 +10,4 @@ export { Container } from './Container/Container';
 export { Navigation } from './Navigation/Navigation';
 export { Section } from './Section/Section';
 export { SectionTitle } from './SectionTitle/SectionTitle';
+export { Modal } from './Modal/Modal';

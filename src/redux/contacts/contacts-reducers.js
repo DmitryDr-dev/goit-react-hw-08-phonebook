@@ -1,7 +1,6 @@
 // import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import contactsOperations from 'redux/contacts/contacts-operations';
-import { changeFilter } from 'redux/contacts/contacts-actions';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -24,6 +23,11 @@ const contactsSlice = createSlice({
     },
     [contactsOperations.deleteContact.fulfilled](state, { payload }) {
       state.contacts = state.contacts.filter(({ id }) => id !== payload);
+    },
+    [contactsOperations.editContact.fulfilled](state, { payload }) {
+      state.contacts = state.contacts.map(contact =>
+        contact.id === payload.id ? payload : contact,
+      );
     },
   },
 });

@@ -61,42 +61,36 @@ export function SignUpForm() {
   return (
     <Form onSubmit={onFormSubmit}>
       <FormField>
-        <FormInputLabel htmlFor={nameInputId}>
-          Name
-          <FormInput
-            type="text"
-            name="name"
-            value={name}
-            id={nameInputId}
-            onChange={onInputChange}
-          />
-        </FormInputLabel>
+        <FormInputLabel htmlFor={nameInputId}>Name</FormInputLabel>
+        <FormInput
+          type="text"
+          name="name"
+          value={name}
+          id={nameInputId}
+          onChange={onInputChange}
+        />
       </FormField>
 
       <FormField>
-        <FormInputLabel htmlFor={emailInputId}>
-          Email
-          <FormInput
-            type="email"
-            name="email"
-            value={email}
-            id={emailInputId}
-            onChange={onInputChange}
-          />
-        </FormInputLabel>
+        <FormInputLabel htmlFor={emailInputId}>Email</FormInputLabel>
+        <FormInput
+          type="email"
+          name="email"
+          value={email}
+          id={emailInputId}
+          onChange={onInputChange}
+        />
       </FormField>
 
       <FormField>
-        <FormInputLabel htmlFor={passwordInputId}>
-          Password
-          <FormInput
-            type="password"
-            name="password"
-            value={password}
-            id={passwordInputId}
-            onChange={onInputChange}
-          />
-        </FormInputLabel>
+        <FormInputLabel htmlFor={passwordInputId}>Password</FormInputLabel>
+        <FormInput
+          type="password"
+          name="password"
+          value={password}
+          id={passwordInputId}
+          onChange={onInputChange}
+        />
       </FormField>
 
       <Button type="submit">Sign Up</Button>

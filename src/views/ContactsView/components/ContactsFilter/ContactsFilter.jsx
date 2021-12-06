@@ -18,6 +18,7 @@ export function ContactsFilter() {
           id={filterInputId}
           value={filterValue}
           onChange={e => dispatch(changeFilter(e.target.value))}
+          placeholder="Enter your query..."
         />
       </FormField>
     </>

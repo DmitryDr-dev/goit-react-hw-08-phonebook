@@ -2,14 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import authOperations from 'redux/auth/auth-operations';
-import {
-  FormField,
-  FormInput,
-  FormInputLabel,
-  Button,
-  Form,
-  SectionTitle,
-} from 'components';
+import { FormField, FormInput, FormInputLabel, Button, Form } from 'components';
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
@@ -53,29 +46,25 @@ export function LoginForm() {
     <>
       <Form onSubmit={onFormSubmit}>
         <FormField>
-          <FormInputLabel htmlFor={emailInputId}>
-            Email
-            <FormInput
-              type="text"
-              name="email"
-              id={emailInputId}
-              value={email}
-              onChange={onInputChange}
-            />
-          </FormInputLabel>
+          <FormInputLabel htmlFor={emailInputId}>Email</FormInputLabel>
+          <FormInput
+            type="text"
+            name="email"
+            id={emailInputId}
+            value={email}
+            onChange={onInputChange}
+          />
         </FormField>
 
         <FormField>
-          <FormInputLabel htmlFor={passwordInputId}>
-            Password
-            <FormInput
-              type="password"
-              name="password"
-              id={passwordInputId}
-              value={password}
-              onChange={onInputChange}
-            />
-          </FormInputLabel>
+          <FormInputLabel htmlFor={passwordInputId}>Password</FormInputLabel>
+          <FormInput
+            type="password"
+            name="password"
+            id={passwordInputId}
+            value={password}
+            onChange={onInputChange}
+          />
         </FormField>
 
         <Button type="submit">Submit</Button>

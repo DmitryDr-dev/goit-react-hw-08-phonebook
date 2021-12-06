@@ -6,11 +6,11 @@ import authReducers from 'redux/auth/auth-reducers';
 import contactsReducers from 'redux/contacts/contacts-reducers';
 import { configureStore } from '@reduxjs/toolkit';
 
-const rootPersistConfig = {
-  key: 'root',
-  storage: storage,
-  // blacklist: ['auth'],
-};
+// const rootPersistConfig = {
+//   key: 'root',
+//   storage: storage,
+//   // blacklist: ['auth'],
+// };
 
 const authPersistConfig = {
   key: 'auth',

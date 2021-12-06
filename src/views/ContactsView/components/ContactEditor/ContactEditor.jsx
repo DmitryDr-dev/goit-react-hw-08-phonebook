@@ -1,35 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { getContacts } from 'redux/contacts/contacts-selectors';
 import contactsOperations from 'redux/contacts/contacts-operations';
 import { FormField, FormInput, FormInputLabel, Button, Form } from 'components';
 
-export function AddContactForm() {
+export function ContactEditor({ id, onClose }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-  const onAddNewContact = newContact =>
-    dispatch(contactsOperations.addNewContact(newContact));
+  const onEditContact = contactToUpdate =>
+    dispatch(
+      contactsOperations.editContact({ contactId: id, contactToUpdate }),
+    );
 
   const nameInputId = uuidv4();
   const numberInputId = uuidv4();
-
-  const checkForDuplicatedContacts = (allContacts, newContact) => {
-    const normalizedContact = newContact.name.toLowerCase();
-
-    if (
-      allContacts.find(
-        contact => contact.name.toLowerCase() === normalizedContact,
-      )
-    ) {
-      return alert(`${newContact.name} already exists!`);
-    }
-
-    onAddNewContact(newContact);
-    clearInput();
-  };
 
   const handleInputChange = e => {
     const { value, name } = e.target;
@@ -54,13 +41,19 @@ export function AddContactForm() {
       number,
     };
 
-    checkForDuplicatedContacts(contacts, newContact);
+    onEditContact(newContact);
+
+    onClose();
+
+    // checkForDuplicatedContacts(contacts, newContact);
   };
 
-  const clearInput = () => {
-    setName('');
-    setNumber('');
-  };
+  useEffect(() => {
+    const currentContact = contacts.find(contact => contact.id === id);
+    setName(currentContact.name);
+    setNumber(currentContact.number);
+    return () => {};
+  }, [contacts, id]);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -72,7 +65,6 @@ export function AddContactForm() {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
-          placeholder="Alan Smith"
           id={nameInputId}
           value={name}
           onChange={handleInputChange}
@@ -87,13 +79,12 @@ export function AddContactForm() {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
-          placeholder="0112223344"
           id={numberInputId}
           value={number}
           onChange={handleInputChange}
         />
       </FormField>
-      <Button type="submit">Add Contact</Button>
+      <Button type="submit">Update Contact</Button>
     </Form>
   );
 }
