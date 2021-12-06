@@ -50,6 +50,7 @@ export function LoginForm() {
           <FormInput
             type="text"
             name="email"
+            placeholder="login@mail.com"
             id={emailInputId}
             value={email}
             onChange={onInputChange}
@@ -61,6 +62,7 @@ export function LoginForm() {
           <FormInput
             type="password"
             name="password"
+            placeholder="You secure password"
             id={passwordInputId}
             value={password}
             onChange={onInputChange}

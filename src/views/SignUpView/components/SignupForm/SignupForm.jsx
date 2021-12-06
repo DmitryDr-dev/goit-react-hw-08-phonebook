@@ -65,6 +65,7 @@ export function SignUpForm() {
         <FormInput
           type="text"
           name="name"
+          placeholder="Alan"
           value={name}
           id={nameInputId}
           onChange={onInputChange}
@@ -76,6 +77,7 @@ export function SignUpForm() {
         <FormInput
           type="email"
           name="email"
+          placeholder="login@mail.com"
           value={email}
           id={emailInputId}
           onChange={onInputChange}
@@ -87,6 +89,7 @@ export function SignUpForm() {
         <FormInput
           type="password"
           name="password"
+          placeholder="You secure password"
           value={password}
           id={passwordInputId}
           onChange={onInputChange}

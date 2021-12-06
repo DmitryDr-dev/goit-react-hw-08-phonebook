@@ -1,7 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { NavBar } from 'components';
+import { NavBar, LoaderComponent } from 'components';
 import authOperations from 'redux/auth/auth-operations';
 import contactsOperations from 'redux/contacts/contacts-operations';
 // import { SignUpView, LoginView, ContactsView } from 'views';
@@ -37,7 +37,7 @@ function App() {
     <div className="App">
       <NavBar />
 
-      <Suspense fallback={<h1>Loading profile...</h1>}>
+      <Suspense fallback={<LoaderComponent />}>
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route
