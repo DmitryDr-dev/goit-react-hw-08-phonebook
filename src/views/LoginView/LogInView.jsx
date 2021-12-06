@@ -1,7 +1,7 @@
-import { LoginForm } from 'views/LoginView/components/LoginForm/LoginForm';
+import { LoginForm } from 'views/LogInView/components/LoginForm/LoginForm';
 import { Container, Section, SectionTitle } from 'components';
 
-export function LoginView() {
+function LogInView() {
   return (
     <Section>
       <Container>
@@ -11,3 +11,5 @@ export function LoginView() {
     </Section>
   );
 }
+
+export default LogInView;

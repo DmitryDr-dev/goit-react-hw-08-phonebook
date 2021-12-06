@@ -1,7 +1,7 @@
 import { SignUpForm } from './components/SignupForm/SignupForm';
 import { Container, Section, SectionTitle } from 'components';
 
-export function SignUpView() {
+function SignUpView() {
   return (
     <Section>
       <Container>
@@ -11,3 +11,5 @@ export function SignUpView() {
     </Section>
   );
 }
+
+export default SignUpView;
