@@ -18,9 +18,10 @@ const HeroSection = styled.section`
   align-items: center;
   margin-right: auto;
   margin-left: auto;
+  min-height: calc(100vh - 53px);
   /* max-width: 100%; */
   height: 100%;
-  /* background-color: var(--dark-bg-color); */
+  background-color: var(--dark-bg-color);
 `;
 
 const HeroTitle = styled.h1`
@@ -29,5 +30,5 @@ const HeroTitle = styled.h1`
   line-height: 1.62;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-color);
+  color: var(--dark-bg-text-color);
 `;

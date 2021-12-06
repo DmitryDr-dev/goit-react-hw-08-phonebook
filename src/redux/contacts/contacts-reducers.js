@@ -1,7 +1,7 @@
 // import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import contactsOperations from 'redux/contacts/contacts-operations';
-// import { changeFilter } from 'redux/contacts/contacts-actions';
+import { changeFilter } from 'redux/contacts/contacts-actions';
 
 const contactsSlice = createSlice({
   name: 'contacts',
